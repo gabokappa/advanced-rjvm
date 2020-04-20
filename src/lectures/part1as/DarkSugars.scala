@@ -61,7 +61,7 @@ object DarkSugars extends App {
 
   val prependedList = 2 :: List(3, 4)
   // this gets re-written as List(3,4).::(2).
-  // scala spec: the last character decides the associativity of the method. So if it ends in a column it is a right associated. if it is not it  is left associated.
+  // scala spec: the last character decides the associativity of the method. So if it ends in a column it is a right associated. if it is not it is left associated.
 1 :: 2 :: 3 :: List(4, 5)
   List(4,5).::(3).::(2).::(1)
 
