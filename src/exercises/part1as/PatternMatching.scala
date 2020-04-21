@@ -27,4 +27,6 @@ object PatternMatching extends App {
   // quick way to write tests is by writing singleton objects with unapply with a boolean
   // although this might get a bit verbose with multiple objects
 
+
+
 }
