@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f911a746-6946-43c5-aa71-fed7385d3dc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/exercises/part1as/MySet.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exercises/part1as/PartialFunctionEx.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lectures/part2afp/PartialFunctions.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lectures/part2afp/CurriesPAF.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part1as/AdvancedPatternMatching$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part1as/AdvancedPatternMatching$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part1as/AdvancedPatternMatching$PersonWrapper$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part1as/AdvancedPatternMatching$PersonWrapper$$anon$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part1as/AdvancedPatternMatching$PersonWrapper$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part1as/AdvancedPatternMatching$PersonWrapper$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part1as/AdvancedPatternMatching$Wrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part1as/AdvancedPatternMatching$Wrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exercises/part1as/MySet.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/exercises/part1as/MySet.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +146,10 @@
       <workItem from="1587714055328" duration="10013000" />
       <workItem from="1587889261502" duration="8700000" />
       <workItem from="1587908048056" duration="11411000" />
-      <workItem from="1587997333134" duration="3445000" />
+      <workItem from="1587997333134" duration="6395000" />
+      <workItem from="1588161282694" duration="9054000" />
+      <workItem from="1588230728863" duration="5810000" />
+      <workItem from="1588498441485" duration="5130000" />
     </task>
     <servers />
   </component>
@@ -159,33 +157,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1600" height="142" key="GridCell.Tab.0.bottom" timestamp="1587920019280">
+    <state width="1600" height="142" key="GridCell.Tab.0.bottom" timestamp="1588503990520">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
-    <state width="1600" height="142" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1587920019280" />
+    <state width="1600" height="142" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1588503990520" />
     <state width="1600" height="142" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1587733527416" />
     <state width="1600" height="142" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1587644202515" />
-    <state width="1600" height="142" key="GridCell.Tab.0.center" timestamp="1587920019280">
+    <state width="1600" height="142" key="GridCell.Tab.0.center" timestamp="1588503990519">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
-    <state width="1600" height="142" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1587920019280" />
+    <state width="1600" height="142" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1588503990519" />
     <state width="1600" height="142" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1587733527415" />
     <state width="1600" height="142" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1587644202514" />
-    <state width="1600" height="142" key="GridCell.Tab.0.left" timestamp="1587920019279">
+    <state width="1600" height="142" key="GridCell.Tab.0.left" timestamp="1588503990518">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
-    <state width="1600" height="142" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1587920019279" />
+    <state width="1600" height="142" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1588503990518" />
     <state width="1600" height="142" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1587733527415" />
     <state width="1600" height="142" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1587644202513" />
-    <state width="1600" height="142" key="GridCell.Tab.0.right" timestamp="1587920019280">
+    <state width="1600" height="142" key="GridCell.Tab.0.right" timestamp="1588503990519">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
-    <state width="1600" height="142" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1587920019280" />
+    <state width="1600" height="142" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1588503990519" />
     <state width="1600" height="142" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1587733527416" />
     <state width="1600" height="142" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1587644202514" />
-    <state x="498" y="398" key="com.intellij.ide.util.TipDialog" timestamp="1587908098886">
+    <state x="498" y="398" key="com.intellij.ide.util.TipDialog" timestamp="1588498450022">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
-    <state x="498" y="398" key="com.intellij.ide.util.TipDialog/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1587908098886" />
+    <state x="498" y="398" key="com.intellij.ide.util.TipDialog/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1588498450022" />
   </component>
 </project>
