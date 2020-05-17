@@ -97,7 +97,8 @@ println(if (simpleCondition && lazyCondition) "yes" else "no") // side effect "B
    */
 
   abstract class MyStream[+A] {
-    def isEmpty: Boolean
+
+
     def head: A
     def tail: MyStream[A]
 
