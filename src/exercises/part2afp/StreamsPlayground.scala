@@ -114,6 +114,42 @@ object StreamsPlayground extends App {
 
   println(startFrom0.map( _ * 2).take(100).toList())
   println(startFrom0.flatMap(x => new Cons(x, new Cons(x + 1, EmptyStream))).take(10).toList())
-  println(startFrom0.filter(_ < 10).toList())
+  println(startFrom0.filter(_ < 10).take(10).toList())
+
+  // Exercises on streams
+  // 1 - fibonacci numbers
+  // 2 - stream of prime numbers with Eratosthenes' sieve
+  /*
+  [2 3 4...] filter out all the numbers divisible by 2, which leaves out [3 5 7 9  11]
+  filter out all the numbers divisible by 3
+  [2 3 5 7 11, 13]
+  filter out all numbers divisible by 5.
+   */
+
+  /*
+  [ first, [....a recurssive call of fibonaci of a stream
+  [first, fibonacci(second, first + second)
+   */
+
+  def fibonacci(first: BigInt, second: BigInt): MyStream[BigInt] =
+    new Cons(first, fibonacci(second, first + second))
+
+  println(fibonacci(1,1).take(100).toList())
+
+  /*
+  [  2 3 4 5 6 7 8 9 10 11 12 ...]
+    ...the head of the stream must be a prime
+    [2 3 5 7 9 11 13....
+    [2 eraosthenes applied to (numbers filteres by n % 2 !=0)
+    [2 3 eratosthenes applied to [ 5 7 9 11 ...] filtered by n % 3 ! = 0
+    [2 3 5
+   */
+
+  // eratosthenes sieve
+  def eratosthenes(numbers: MyStream[Int]): MyStream[Int] =
+    if (numbers.isEmpty) numbers
+    else new Cons(numbers.head, eratosthenes(numbers.tail.filter(_ % numbers.head !=0)))
+  println(eratosthenes(MyStream.from(2)(_ + 1)).take(100).toList())
+
 
 }
