@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f911a746-6946-43c5-aa71-fed7385d3dc6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/exercises/part2afp/StreamsPlayground$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/exercises/part2afp/StreamsPlayground$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exercises/part2afp/StreamsPlayground.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/exercises/part2afp/StreamsPlayground.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +154,11 @@
       <workItem from="1589634212257" duration="10032000" />
       <workItem from="1589708543104" duration="11150000" />
       <workItem from="1589789031602" duration="598000" />
-      <workItem from="1589900425686" duration="2141000" />
+      <workItem from="1589900425686" duration="4511000" />
+      <workItem from="1590398820344" duration="1216000" />
+      <workItem from="1590830757330" duration="471000" />
+      <workItem from="1591460406495" duration="599000" />
+      <workItem from="1591601306318" duration="11000" />
     </task>
     <servers />
   </component>
@@ -164,38 +166,38 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1600" height="156" key="GridCell.Tab.0.bottom" timestamp="1589902456407">
-      <screen x="0" y="23" width="1680" height="958" />
-    </state>
-    <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1589737059371" />
-    <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902456407" />
-    <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716756" />
-    <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557028" />
-    <state width="1600" height="156" key="GridCell.Tab.0.center" timestamp="1589902456406">
-      <screen x="0" y="23" width="1680" height="958" />
-    </state>
-    <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1589737059371" />
-    <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902456406" />
-    <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716755" />
-    <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557028" />
-    <state width="1600" height="156" key="GridCell.Tab.0.left" timestamp="1589902456405">
-      <screen x="0" y="23" width="1680" height="958" />
-    </state>
-    <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1589737059371" />
-    <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902456405" />
-    <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716755" />
-    <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557027" />
-    <state width="1600" height="156" key="GridCell.Tab.0.right" timestamp="1589902456407">
-      <screen x="0" y="23" width="1680" height="958" />
-    </state>
-    <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1589737059371" />
-    <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902456407" />
-    <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716756" />
-    <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557028" />
-    <state x="498" y="399" key="com.intellij.ide.util.TipDialog" timestamp="1589789873147">
+    <state width="1600" height="156" key="GridCell.Tab.0.bottom" timestamp="1589917589049">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
-    <state x="498" y="399" key="com.intellij.ide.util.TipDialog/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1589789873147" />
+    <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1589917589049" />
+    <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795887" />
+    <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716756" />
+    <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557028" />
+    <state width="1600" height="156" key="GridCell.Tab.0.center" timestamp="1589917589048">
+      <screen x="0" y="23" width="1680" height="956" />
+    </state>
+    <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1589917589048" />
+    <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795886" />
+    <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716755" />
+    <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557028" />
+    <state width="1600" height="156" key="GridCell.Tab.0.left" timestamp="1589917589048">
+      <screen x="0" y="23" width="1680" height="956" />
+    </state>
+    <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1589917589048" />
+    <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795885" />
+    <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716755" />
+    <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557027" />
+    <state width="1600" height="156" key="GridCell.Tab.0.right" timestamp="1589917589049">
+      <screen x="0" y="23" width="1680" height="956" />
+    </state>
+    <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1589917589049" />
+    <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795886" />
+    <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716756" />
+    <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557028" />
+    <state x="498" y="399" key="com.intellij.ide.util.TipDialog" timestamp="1591601313606">
+      <screen x="0" y="23" width="1680" height="956" />
+    </state>
+    <state x="498" y="399" key="com.intellij.ide.util.TipDialog/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1591601313606" />
     <state x="569" y="454" key="com.intellij.ide.util.TipDialog/0.23.1920.1098@0.23.1920.1098" timestamp="1588534387542" />
   </component>
 </project>
