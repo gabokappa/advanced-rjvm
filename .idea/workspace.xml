@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f911a746-6946-43c5-aa71-fed7385d3dc6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/lectures/part3concurrency/Intro.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lectures/part2afp/Monads.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/lectures/part2afp/Monads.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part2afp/Monads$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part2afp/Monads$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part2afp/Monads$Lazy$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part2afp/Monads$Lazy$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part2afp/Monads$Lazy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part2afp/Monads$Lazy.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +48,26 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
-  <component name="RunManager" selected="Application.Monads">
+  <component name="RunManager" selected="Application.Intro">
     <configuration name="CurriesPAF" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="lectures.part2afp.CurriesPAF" />
       <module name="rjvm-advanced-lessons" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="lectures.part2afp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Intro" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="lectures.part3concurrency.Intro" />
+      <module name="rjvm-advanced-lessons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lectures.part3concurrency.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,19 +101,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MySetPlayground" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="exercises.part1as.MySetPlayground" />
-      <module name="rjvm-advanced-lessons" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="exercises.part1as.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="StreamsPlayground" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="exercises.part2afp.StreamsPlayground" />
       <module name="rjvm-advanced-lessons" />
@@ -113,11 +116,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Intro" />
         <item itemvalue="Application.Monads" />
         <item itemvalue="Application.StreamsPlayground" />
         <item itemvalue="Application.LazyEvaluation" />
         <item itemvalue="Application.CurriesPAF" />
-        <item itemvalue="Application.MySetPlayground" />
       </list>
     </recent_temporary>
   </component>
@@ -162,7 +165,10 @@
       <workItem from="1591601306318" duration="11000" />
       <workItem from="1592123912930" duration="6136000" />
       <workItem from="1594020390848" duration="13642000" />
-      <workItem from="1594480264329" duration="1380000" />
+      <workItem from="1594480264329" duration="7409000" />
+      <workItem from="1594627064871" duration="3625000" />
+      <workItem from="1594733413514" duration="599000" />
+      <workItem from="1594740167039" duration="3010000" />
     </task>
     <servers />
   </component>
@@ -170,38 +176,43 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1600" height="162" key="GridCell.Tab.0.bottom" timestamp="1592206301894">
-      <screen x="0" y="23" width="1680" height="956" />
+    <state width="1600" height="297" key="GridCell.Tab.0.bottom" timestamp="1594741951965">
+      <screen x="0" y="23" width="1680" height="963" />
     </state>
-    <state width="1600" height="162" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1592206301894" />
+    <state width="1600" height="297" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1594571670085" />
     <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795887" />
     <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716756" />
+    <state width="1600" height="297" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.963@0.23.1680.963" timestamp="1594741951965" />
     <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557028" />
-    <state width="1600" height="162" key="GridCell.Tab.0.center" timestamp="1592206301894">
-      <screen x="0" y="23" width="1680" height="956" />
+    <state width="1600" height="297" key="GridCell.Tab.0.center" timestamp="1594741951965">
+      <screen x="0" y="23" width="1680" height="963" />
     </state>
-    <state width="1600" height="162" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1592206301894" />
+    <state width="1600" height="297" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1594571670084" />
     <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795886" />
     <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716755" />
+    <state width="1600" height="297" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.963@0.23.1680.963" timestamp="1594741951965" />
     <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557028" />
-    <state width="1600" height="162" key="GridCell.Tab.0.left" timestamp="1592206301893">
-      <screen x="0" y="23" width="1680" height="956" />
+    <state width="1600" height="297" key="GridCell.Tab.0.left" timestamp="1594741951964">
+      <screen x="0" y="23" width="1680" height="963" />
     </state>
-    <state width="1600" height="162" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1592206301893" />
+    <state width="1600" height="297" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1594571670084" />
     <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795885" />
     <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716755" />
+    <state width="1600" height="297" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.963@0.23.1680.963" timestamp="1594741951964" />
     <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557027" />
-    <state width="1600" height="162" key="GridCell.Tab.0.right" timestamp="1592206301894">
-      <screen x="0" y="23" width="1680" height="956" />
+    <state width="1600" height="297" key="GridCell.Tab.0.right" timestamp="1594741951965">
+      <screen x="0" y="23" width="1680" height="963" />
     </state>
-    <state width="1600" height="162" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1592206301894" />
+    <state width="1600" height="297" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1594571670085" />
     <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795886" />
     <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1589901716756" />
+    <state width="1600" height="297" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.963@0.23.1680.963" timestamp="1594741951965" />
     <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557028" />
-    <state x="498" y="399" key="com.intellij.ide.util.TipDialog" timestamp="1594480264118">
-      <screen x="0" y="23" width="1680" height="956" />
+    <state x="498" y="400" key="com.intellij.ide.util.TipDialog" timestamp="1594740169824">
+      <screen x="0" y="23" width="1680" height="958" />
     </state>
-    <state x="498" y="399" key="com.intellij.ide.util.TipDialog/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1594480264118" />
+    <state x="498" y="399" key="com.intellij.ide.util.TipDialog/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1594627067127" />
+    <state x="498" y="400" key="com.intellij.ide.util.TipDialog/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1594740169824" />
     <state x="569" y="454" key="com.intellij.ide.util.TipDialog/0.23.1920.1098@0.23.1920.1098" timestamp="1588534387542" />
   </component>
 </project>
