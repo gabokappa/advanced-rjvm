@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f911a746-6946-43c5-aa71-fed7385d3dc6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lectures/part3concurrency/ThreadCommunication.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/lectures/part3concurrency/ThreadCommunication.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lectures/part3concurrency/FuturesPromises.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/lectures/part3concurrency/FuturesPromises.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +45,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
-  <component name="RunManager" selected="Application.ThreadCommunication">
-    <configuration name="Intro" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="lectures.part3concurrency.Intro" />
+  <component name="RunManager" selected="Application.FuturesPromises">
+    <configuration name="FuturesPromises" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="lectures.part3concurrency.FuturesPromises" />
       <module name="rjvm-advanced-lessons" />
       <extension name="coverage">
         <pattern>
@@ -59,12 +59,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LazyEvaluation" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="lectures.part2afp.LazyEvaluation" />
+    <configuration name="Intro" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="lectures.part3concurrency.Intro" />
       <module name="rjvm-advanced-lessons" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="lectures.part2afp.*" />
+          <option name="PATTERN" value="lectures.part3concurrency.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -113,11 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FuturesPromises" />
         <item itemvalue="Application.ThreadCommunication" />
         <item itemvalue="Application.Intro" />
         <item itemvalue="Application.Monads" />
         <item itemvalue="Application.StreamsPlayground" />
-        <item itemvalue="Application.LazyEvaluation" />
       </list>
     </recent_temporary>
   </component>
@@ -172,7 +172,7 @@
       <workItem from="1595162419502" duration="4446000" />
       <workItem from="1595234249648" duration="2441000" />
       <workItem from="1595317826506" duration="1637000" />
-      <workItem from="1595681480506" duration="3999000" />
+      <workItem from="1595681480506" duration="5842000" />
     </task>
     <servers />
   </component>
@@ -180,37 +180,37 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1600" height="204" key="GridCell.Tab.0.bottom" timestamp="1595685859024">
+    <state width="1600" height="249" key="GridCell.Tab.0.bottom" timestamp="1595687773367">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
-    <state width="1600" height="204" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1595685859024" />
+    <state width="1600" height="249" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1595687773367" />
     <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795887" />
     <state width="1600" height="391" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1594746673769" />
     <state width="1600" height="391" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.961@0.23.1680.961" timestamp="1594745571305" />
     <state width="1600" height="297" key="GridCell.Tab.0.bottom/-123.-1057.1920.1057/0.23.1680.963@0.23.1680.963" timestamp="1594741951965" />
     <state width="1600" height="156" key="GridCell.Tab.0.bottom/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557028" />
-    <state width="1600" height="204" key="GridCell.Tab.0.center" timestamp="1595685859022">
+    <state width="1600" height="249" key="GridCell.Tab.0.center" timestamp="1595687773366">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
-    <state width="1600" height="204" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1595685859022" />
+    <state width="1600" height="249" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1595687773366" />
     <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795886" />
     <state width="1600" height="391" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1594746673768" />
     <state width="1600" height="391" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.961@0.23.1680.961" timestamp="1594745571304" />
     <state width="1600" height="297" key="GridCell.Tab.0.center/-123.-1057.1920.1057/0.23.1680.963@0.23.1680.963" timestamp="1594741951965" />
     <state width="1600" height="156" key="GridCell.Tab.0.center/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557028" />
-    <state width="1600" height="204" key="GridCell.Tab.0.left" timestamp="1595685859021">
+    <state width="1600" height="249" key="GridCell.Tab.0.left" timestamp="1595687773365">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
-    <state width="1600" height="204" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1595685859021" />
+    <state width="1600" height="249" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1595687773365" />
     <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795885" />
     <state width="1600" height="391" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1594746673768" />
     <state width="1600" height="391" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.961@0.23.1680.961" timestamp="1594745571303" />
     <state width="1600" height="297" key="GridCell.Tab.0.left/-123.-1057.1920.1057/0.23.1680.963@0.23.1680.963" timestamp="1594741951964" />
     <state width="1600" height="156" key="GridCell.Tab.0.left/-123.-1057.1920.983/0.23.1680.1027@0.23.1680.1027" timestamp="1589644557027" />
-    <state width="1600" height="204" key="GridCell.Tab.0.right" timestamp="1595685859023">
+    <state width="1600" height="249" key="GridCell.Tab.0.right" timestamp="1595687773367">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
-    <state width="1600" height="204" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1595685859023" />
+    <state width="1600" height="249" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.956@0.23.1680.956" timestamp="1595687773367" />
     <state width="1600" height="156" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.958@0.23.1680.958" timestamp="1589902795886" />
     <state width="1600" height="391" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.960@0.23.1680.960" timestamp="1594746673768" />
     <state width="1600" height="391" key="GridCell.Tab.0.right/-123.-1057.1920.1057/0.23.1680.961@0.23.1680.961" timestamp="1594745571304" />
