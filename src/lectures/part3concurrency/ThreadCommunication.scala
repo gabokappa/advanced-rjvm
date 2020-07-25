@@ -206,6 +206,87 @@ object ThreadCommunication extends App {
     (1 to nProducers).foreach(i => new Producer(i, buffer, capacity).start())
   }
 
-  multiProdCons(3, 3)
+//  multiProdCons(3, 3)
+  /*
+  1) Exercises think of an examle where notifyAll acts in a different way than notify?
+
+  In the example above changing it to notifyAll doesn't make a big difference because of the threads are all synchronised on the buffer. So they are all blocked on the buffer aside from one thread.
+
+  But in what scenario would this be an issue?
+
+
+  2) Create a deadlock, its when multiple threads block eachother
+  3) Create a a livelock, a livelock yield exectuion to each other in such a way that no body can continuesto the threads are active, but continously blocked
+   */
+
+//notifyall
+  def testNotifyAll(): Unit = {
+    val bell = new Object
+
+    (1 to 10).foreach(i => new Thread(() => {
+      bell.synchronized {
+        println(s"[thread $i] waiting")
+        bell.wait()
+        println(s"[thread $i] hooray!!")
+      }
+    }).start())
+
+    new Thread(() => {
+      Thread.sleep(2000)
+      println("[announcer] Rock and roll)")
+      bell.synchronized {
+        bell.notifyAll()
+      }
+    }).start()
+  }
+
+  // testNotifyAll()
+
+  // Exercise 2 deadlock case (random example avbout bowing and rising in society
+
+  case class Friend(name: String) {
+    def bow(other: Friend) = {
+      this.synchronized {
+        println(s"$this: I am bowing to my friend $other")
+        other.rise(this)
+        println(s"$this: my friend $other has risen")
+
+      }
+    }
+
+    def rise(other: Friend) = {
+      this.synchronized {
+        println(s"$this: I am rising to my friend $other")
+      }
+    }
+
+    var side = "right"
+    def switchSide(): Unit = {
+      if (side == "right") side = "left"
+      else side = "right"
+    }
+
+    def pass(other: Friend): Unit = {
+      while(this.side == other.side) {
+        println(s"$this: Ok, but please $other, feel free to pass ...")
+        switchSide()
+        Thread.sleep(1000)
+      }
+    }
+
+  }
+
+  val sam = Friend("Sam")
+  val peter = Friend("Peter")
+
+ // new Thread(() => sam.bow(peter)).start() // this thread blocks sam's lock first with the synchronised block in the bow method. THen peter's block's after
+ // new Thread(() => peter.bow(sam)).start() // this blocks peter's lock and then sam's lock. These two threads lock eachother out for when it comes to the rise method.
+
+  // 3 Exercise about the livelock
+
+  new Thread(() => sam.pass(peter)).start()
+  new Thread(() => peter.pass(sam)).start()
+
+  // this is a livelock this means that no thread is free to continue running as they yiedl execution others
 
 }
