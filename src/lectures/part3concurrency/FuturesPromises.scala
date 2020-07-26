@@ -3,7 +3,7 @@ package lectures.part3concurrency
 import scala.collection.SortedSet
 import scala.concurrent.{Await, Future, Promise}
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.{Failure, Random, Success}
+import scala.util.{Failure, Random, Success, Try}
 import scala.concurrent.duration._
 
 object FuturesPromises extends App {
@@ -23,7 +23,7 @@ object FuturesPromises extends App {
     case Success(meaningOfLife) => println(s"the meaning of life $meaningOfLife")
     case Failure(ex) => println((s"This fialed with $ex"))
   } // this will be called by SOME thread, we don't know which thread computes this
-Thread.sleep(3000)
+  Thread.sleep(3000)
 
   // mini social network
 
@@ -34,10 +34,10 @@ Thread.sleep(3000)
 
   object SocialNetwork {
     // "database" of profiles held as a map
-    val names = Map (
+    val names = Map(
       "fb.id.1-zuck" -> "Mark",
       "fb.id.2-bill" -> "Bill",
-    "fb.id.3-gabriel" -> "Gabriel"
+      "fb.id.3-gabriel" -> "Gabriel"
     )
 
     val friends = Map(
@@ -95,23 +95,24 @@ Thread.sleep(3000)
 
   // fallbacks
 
-  val aDefaultProfile = SocialNetwork.fetchProfile("unknown").recover {
-    case e: Throwable=> Profile("fb.id.0-dummy", "Solo")
+  val aDefaultProfile = SocialNetwork.fetchProfile("unknown").recover { // this recovers with a dummy profile
+    case e: Throwable => Profile("fb.id.0-dummy", "Solo")
   }
 
-  val aFetchedProfileNoMatterWhat = SocialNetwork.fetchProfile("unknown").recoverWith {
+  val aFetchedProfileNoMatterWhat = SocialNetwork.fetchProfile("unknown").recoverWith { // this goes and fetch another profile, we use this to return an argument that we know almost for sure that doesn't throw an exception
     case e: Throwable => SocialNetwork.fetchProfile("fb.id.3-gabriel")
   }
 
-  val fallbackResult = SocialNetwork.fetchProfile("unknown").fallbackTo(SocialNetwork.fetchProfile("fb.id.3-gabriel"))
+  val fallbackResult = SocialNetwork.fetchProfile("unknown").fallbackTo(SocialNetwork.fetchProfile("fb.id.3-gabriel")) // this creates a new future, if the first succeeds then it is fine, the fallback is used in case of the failure of the first future. If the second future also fails the exception returns in the one of the first failure
 
 
   // lets pretend we have an online banking app
   case class User(name: String)
+
   case class Transaction(sender: String, receiver: String, amount: Double, status: String)
 
   object BankingApp {
-    val name = "Banking App"
+    val name = "The Banking App"
 
     def fetchUser(name: String): Future[User] = Future {
       // simulate long computation
@@ -152,12 +153,117 @@ Thread.sleep(3000)
   val producer = new Thread(() => {
     println("[producer] crunching numbers...")
     Thread.sleep(500)
-    // the below is the promis being fulfilled
+    // the below is the promise being fulfilled
     promise.success(42)
     println("[producer] done")
   })
 
   producer.start()
   Thread.sleep(1000)
+
+  /*
+  1) Write a future that returns a value immediatley
+  2) Write inSequence(future[a], future[b]) this runs future b after future a has been completed. So in sequence.
+  3) Return a future containing the earliest value returned by two futures
+  first(fa, fb) => new future with the first value of the two futures
+
+  4) last(fa,fb) the opposite of the above return the last value
+  5) retryUntil(action: () => Future[T], condition: T => Boolean): Future[T] Run an action until the condition is met and then return the first instance that fulfills the condition
+
+   */
+
+  // 1 fulfill immediately
+  def fulfillImmediatley[T](value: T): Future[T] = Future(value) // the value is already computed
+
+  // 2 insequence
+
+  def inSequence[A, B](first: Future[A], second: Future[B]): Future[B] = {
+    first.flatMap(_ => second) // this returns the second future, making sure the first future has finished.
+  }
+
+  // 3 first out of two futures (PROMISES EMPLOYED HERE)
+  def first[A](fa: Future[A], fb: Future[A]): Future[A] = {
+    val promise = Promise[A] // this is the controller of a Future[A]
+
+    // the below needs to be wrapped in a try because if one promise succeeds say fa. then fb when it goes to succeed it throws an exception because it has already succeeded.
+
+    // helper method
+
+    //    def tryComplete(promise: Promise[A], result: Try[A]) = result match {
+    //      case Success(r) => try {
+    //        promise.success(r)
+    //      } catch {
+    //        case _ =>
+    //      }
+    //      case Failure(t) => try {
+    //        promise.failure(t)
+    //      } catch {
+    //        case _ =>
+    //      }
+    //    }
+    //
+    //    fa.onComplete(result => tryComplete(promise, result)) // fb. uses the "shorter" version using underscore instead of result variable
+    //
+    //    fb.onComplete(tryComplete(promise, _))
+
+    // All the above can be shortened without using the helper method as one already exists in the promise. The difference is that it returns a boolean
+
+    fa.onComplete(promise.tryComplete(_)) // same as below. The method is lifted into a function value
+    fb.onComplete(promise.tryComplete)
+
+    promise.future // this will hold the first finished promise out of fa or fb.
+  }
+
+    // 4 - the last of the two futures
+
+    def last[A](fa: Future[A], fb: Future[A]): Future[A] = {
+        // going to use two promises. 1 promise which both futures try to complete
+      // the one that arrives last and fails the first promise, will complete a second promise
+
+      val bothPromise = Promise[A]
+      val lastPromise = Promise[A]
+      val checkAndComplete = (result: Try[A]) =>
+        if(!bothPromise.tryComplete(result))
+          lastPromise.complete(result)
+
+      fa.onComplete(checkAndComplete)
+      fb.onComplete(checkAndComplete)
+
+      lastPromise.future
+    }
+
+  val fast = Future {
+    Thread.sleep(100)
+    42
+  }
+
+  val slow = Future {
+    Thread.sleep(200)
+    45
+  }
+
+  first(fast, slow).foreach(f => println("FIRST: " + f)) // this should be 42
+  last(fast, slow).foreach(l => println("LAST: " + l)) // this should be 45
+
+  Thread.sleep(1000)
+
+  // retry until
+  def retryUntil[A](action: () => Future[A], condition: A => Boolean): Future[A] =
+    action()  // Triggering the action returns a future.
+    .filter(condition) // here, the result from action() either passes the condition or it fails
+    .recoverWith { // if the above fails it retries again
+      case _ => retryUntil(action, condition)
+    }
+
+  val random = new Random()
+  val action = () => Future {
+    Thread.sleep(100)
+    val nextValue = random.nextInt(100)
+    println("generated " + nextValue)
+    nextValue
+  }
+
+  retryUntil(action, (x: Int) => x < 10).foreach(result => println("settled at " + result))
+  Thread.sleep(10000)
 
 }
