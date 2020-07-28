@@ -25,9 +25,24 @@ object OrganisingImplicits extends App {
     Person("Amy", 22),
     Person("John", 66)
   )
-
+object Person {
   implicit val alphabeticOrdering: Ordering[Person] = Ordering.fromLessThan((a, b) => a.name.compareTo(b.name) < 0) // how to compare strings
+}
   println(persons.sorted)
+
+/*
+Implicit scope (priority in this list is top to bottom)
+- normal scope = LOCAL SCOPE where we write our code (highest priority)
+- imported scope (imported into the doc like we do with libraries etc)
+- companion objects of all types involved in the method signature (take example above with the below sorted definition as example)
+  - List ( the compiler looks for implicitis ordering in here)
+  - Ordering ( the companion object)
+  - all the types of involved = A or any supertyp. So in the example here if we move the implicit val as part of a companion object of the Person as Person is involved in the list the compiler can see the implicit. If it is in another unrelated object then it can't see that.
+
+ */
+
+  // def sorted[B >: A](implicit ord: Ordering[B]): List[B] This is what the sorting does in the example above which for our case is a List
+
 
 
 }
