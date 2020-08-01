@@ -44,7 +44,7 @@ object TypeClasses extends App {
     def serialize(value: T): String
   }
 
-  object UserSerializer extends HTMLSerializer[User] {
+  implicit object UserSerializer extends HTMLSerializer[User] {
     def serialize(user: User): String = s"<div>${user.name} (${user.age} yo) <a href=${user.email}/> </div>"
   }
 
@@ -78,6 +78,11 @@ object TypeClasses extends App {
     def action(value: T): String
   }
 
+  object MyTypeClassTemplate {
+    def apply[T](implicit instance: MyTypeClassTemplate[T]) = instance
+    // as this surfaces the the implicit this means we have access to all the methods in the trair above?
+  }
+
   /*
   Implemenet an equal type class that compares two values
    */
@@ -86,7 +91,7 @@ object TypeClasses extends App {
     def apply(a: T, b: T): Boolean
   }
 
-  object NameEquality extends Equal[User] {
+  implicit object NameEquality extends Equal[User] {
     override def apply(a: User, b: User): Boolean = a.name == b.name
   }
 
@@ -95,6 +100,50 @@ object TypeClasses extends App {
   }
 
 
+  // part 2
+
+  object HTMLSerializer {
+    def serialize[T](value: T)(implicit serializer: HTMLSerializer[T]): String =
+      serializer.serialize(value)
+
+    // TODO adding apply method a better design to have a factory method apply here
+
+    def apply[T](implicit serializer: HTMLSerializer[T]) = serializer
+  }
+
+  // TODO the original code below
+//  object IntSerializer extends HTMLSerializer[Int] {
+//    override def serialize(value: Int): String = s"<div style: color=blue>$value</div>"
+//  }
+//
+//  println(HTMLSerializer.serialize(42)(IntSerializer))
+
+// TODO the implicit below with the IntSerializer implicit so no need to use it below
+
+    implicit object IntSerializer extends HTMLSerializer[Int] {
+      override def serialize(value: Int): String = s"<div style: color=blue>$value</div>"
+    }
+
+    println(HTMLSerializer.serialize(42))
+  // below need to make the UserSerializer above implicit
+
+  println(HTMLSerializer.serialize(john))
+  println(HTMLSerializer[User].serialize(john)) //as we declare the given type in HTMLSerializer[User] we have access to entire type class interface so other methods as well.
+
+  /*
+  Exercise: implement the type class pattern for the Equality type class.
+   */
+
+  object Equal {
+    def apply[T](a: T, b: T)(implicit equalizer: Equal[T]): Boolean =
+      equalizer.apply(a, b)
+  }
+
+  val anotherJohn = User("John", 45, "johnny2@test.com")
+  println(Equal.apply(john, anotherJohn))
+  // below is the same. The below is known as AD-HOC polymorphism. If two distinct unrelated types have qualizers implemented we can call Equal regardles of their type.
+  // based on the types passed to the Equal the compiler fetches the right type.
+  println(Equal(john, anotherJohn))
 
 
 }
