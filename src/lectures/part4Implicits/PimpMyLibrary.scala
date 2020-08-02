@@ -41,7 +41,7 @@ object PimpMyLibrary extends App {
   import scala.concurrent.duration._
   3.seconds
 
-  // compiler doesn't doe multiple implicit searches
+  // compiler doesn't do multiple implicit searches
   //42.isOdd
 
   /*

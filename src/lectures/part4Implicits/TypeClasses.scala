@@ -74,30 +74,11 @@ object TypeClasses extends App {
 
   //TYPE CLASS example
 
-  trait MyTypeClassTemplate[T] {
-    def action(value: T): String
-  }
 
-  object MyTypeClassTemplate {
-    def apply[T](implicit instance: MyTypeClassTemplate[T]) = instance
-    // as this surfaces the the implicit this means we have access to all the methods in the trair above?
-  }
 
   /*
   Implemenet an equal type class that compares two values
    */
-
-  trait Equal[T] {
-    def apply(a: T, b: T): Boolean
-  }
-
-  implicit object NameEquality extends Equal[User] {
-    override def apply(a: User, b: User): Boolean = a.name == b.name
-  }
-
-  object FullEquality extends Equal[User] {
-    override def apply(a: User, b: User): Boolean = (a.name == b.name && a.email == b.email)
-  }
 
 
   // part 2
@@ -134,16 +115,9 @@ object TypeClasses extends App {
   Exercise: implement the type class pattern for the Equality type class.
    */
 
-  object Equal {
-    def apply[T](a: T, b: T)(implicit equalizer: Equal[T]): Boolean =
-      equalizer.apply(a, b)
-  }
 
-  val anotherJohn = User("John", 45, "johnny2@test.com")
-  println(Equal.apply(john, anotherJohn))
-  // below is the same. The below is known as AD-HOC polymorphism. If two distinct unrelated types have qualizers implemented we can call Equal regardles of their type.
-  // based on the types passed to the Equal the compiler fetches the right type.
-  println(Equal(john, anotherJohn))
+
+  // part 3
 
 
 }
