@@ -141,7 +141,35 @@ object TypeClasses extends App {
   type class itself HTMLSerializer[T] {....}
   type class instance (some of which are implicit e.g UserSerializer
   conversion with implicit classes is HTMLEnrichment
- Th
+
    */
+
+  // context bounds
+
+  def htmlBoilerPlate[T](content: T)(implicit serializer: HTMLSerializer[T]): String =
+    s"<html><body> ${content.toHTML(serializer)}<body></html>"
+// TODO the below is context bounds as the : after T tells the compiler to inject an implicit parameter of HTMLSerializer[T]. But can't use the serializer by name
+
+  def htmlSugar[T : HTMLSerializer](content: T): String =
+    s"<html><body> ${content.toHTML}<body></html>"
+
+  // implicitly
+
+  case class Permissions(mask: String)
+  implicit val defaultPermissions: Permissions = Permissions("0744")
+
+  // in some other part of the code we need to surface out the implicit value of the permissions
+
+  // the below surfaces out the implicits methods which can be used through the val standardPerms
+  val standardPerms = implicitly[Permissions]
+
+  // A way to pass the implicit but still being able to summon it is in the below
+
+  def htmlSugar2[T: HTMLSerializer](content: T): String = {
+    val serializer = implicitly[HTMLSerializer[T]]
+    // below we use the val established above
+    s"<html><body> ${content.toHTML(serializer)}<body></html>"
+
+  }
 
 }

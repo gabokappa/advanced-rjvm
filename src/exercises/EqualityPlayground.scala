@@ -2,7 +2,7 @@ package exercises
 
 import lectures.part4Implicits.TypeClasses.User
 
-object EqualityPlayground  {
+object EqualityPlayground extends App {
 
   trait Equal[T] {
     def apply(a: T, b: T): Boolean
@@ -33,6 +33,22 @@ object EqualityPlayground  {
   get two methods
   ===(anothervalue: T)
   !==(anotherValue: T the opposite of the above
+   */
+
+  implicit class TypeSafeEqual[T](value: T) {
+    def ===(other: T)(implicit equalizer: Equal[T]): Boolean = equalizer.apply(value, other)
+    def !==(other: T)(implicit equalizer: Equal[T]): Boolean = ! equalizer.apply(value, other)
+  }
+println(john === anotherJohn)
+  /*
+  These are the steps the compiler does
+  it re-wirtes the expression as john.===(anotherJohn) it finds an implicit class TypeSafeEqual and wraps it around a new instance of equal user
+  new TypeSafeEqual[User](john).===(anotherJohn) // this method (the ===) takes an implicit equalizer which it takes from above from the implicit NameEquality
+  new TypeSafeEqual[User](john).===(anotherJohn)(NameEquality)
+   */
+
+  /*
+  THIS IS TYPE SAFE you can't === john === 43 for example because different types
    */
 
 }
