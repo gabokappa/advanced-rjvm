@@ -101,11 +101,11 @@ object TypeClasses extends App {
 
 // TODO the implicit below with the IntSerializer implicit so no need to use it below
 
-    implicit object IntSerializer extends HTMLSerializer[Int] {
+   implicit object IntSerializer extends HTMLSerializer[Int] {
       override def serialize(value: Int): String = s"<div style: color=blue>$value</div>"
     }
 
-    println(HTMLSerializer.serialize(42))
+    println(HTMLSerializer.serialize(42)(IntSerializer))
   // below need to make the UserSerializer above implicit
 
   println(HTMLSerializer.serialize(john))
@@ -119,5 +119,29 @@ object TypeClasses extends App {
 
   // part 3
 
+  implicit class HTMLEnrichment[T](value: T) {
+    def toHTML(implicit serializer: HTMLSerializer[T]): String = serializer.serialize(value)
+  }
+
+//  println(john.toHTML(UserSerializer))
+  println(new HTMLEnrichment[User](john).toHTML(UserSerializer))
+  println(john.toHTML)
+
+  /*
+  - extend functionality to new types, see 2.toHTML
+  - Can choose implementation, either by importing the HTMLSerializer into local scope of passing it implicitly
+  - super expressive
+
+   */
+
+  println(2.toHTML)
+  println(new HTMLEnrichment[User](john).toHTML(PartialUserSerializer))
+
+  /*
+  type class itself HTMLSerializer[T] {....}
+  type class instance (some of which are implicit e.g UserSerializer
+  conversion with implicit classes is HTMLEnrichment
+ Th
+   */
 
 }
