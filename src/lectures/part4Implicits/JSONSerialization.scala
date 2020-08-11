@@ -90,13 +90,43 @@ object JSONSerialization extends App {
   // custom data types
 
   implicit object UserConverter extends JSONConverter[User] {
-    def convert(user: User): JSONObject = JSONObject(Map(
+    def convert(user: User): JSONValue= JSONObject(Map(
       "name" -> JSONString(user.name),
       "age" -> JSONNumber(user.age),
       "email" -> JSONString(user.email)
     ))
   }
 
+  implicit object PostConverter extends JSONConverter[Post] {
+    def convert(post: Post): JSONValue = JSONObject(Map(
+      "content" -> JSONString(post.content),
+      "created:" -> JSONString(post.createdAt.toString)
+    ))
+  }
+
+  implicit object FeedConverter extends JSONConverter[Feed] {
+    def convert(feed: Feed): JSONValue = JSONObject(Map(
+    "user" -> UserConverter.convert(feed.user), // TODO refactor here if you put JSONOPs ahead of tjis you can make this simple feed.user.toJSON
+      "posts" -> JSONArray(feed.posts.map(PostConverter.convert)) // TODO refactor as above should be feed.posts.map(_.toJSON)
+    ))
+  }
+
+  // 2.3 converstion to a json
+
   // 2 call on stringify on result
+
+  implicit class JSONOps[T](value: T) {
+    def toJSON(implicit converter: JSONConverter[T]): JSONValue =
+      converter.convert(value)
+  }
+
+  val now = new Date(System.currentTimeMillis())
+  val john = User("john", 34, "john@test.com")
+  val feed = Feed(john, List(
+    Post("hello", now),
+    Post("hello from clearscore", now)
+  ))
+
+  println(feed.toJSON.stringify)
 
 }
