@@ -48,7 +48,7 @@ println(john === anotherJohn)
    */
 
   /*
-  THIS IS TYPE SAFE you can't === john === 43 for example because different types
+  THIS IS TYPE SAFE you can't === john === 43 for example because different types. The compiler makes sure that both operands are type safe
    */
 
 }

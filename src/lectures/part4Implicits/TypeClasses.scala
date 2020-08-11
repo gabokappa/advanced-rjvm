@@ -129,13 +129,13 @@ object TypeClasses extends App {
 
   /*
   - extend functionality to new types, see 2.toHTML
-  - Can choose implementation, either by importing the HTMLSerializer into local scope of passing it implicitly
+  - Can choose implementation, either by importing the HTMLSerializer into local scope of passing it explicitly
   - super expressive
 
    */
 
-  println(2.toHTML)
-  println(new HTMLEnrichment[User](john).toHTML(PartialUserSerializer))
+  println(2.toHTML) // here there is an implicit serializer for Int so it works.
+  println(new HTMLEnrichment[User](john).toHTML(PartialUserSerializer)) // passing the serializer explicitly
 
   /*
   type class itself HTMLSerializer[T] {....}
@@ -148,12 +148,12 @@ object TypeClasses extends App {
 
   def htmlBoilerPlate[T](content: T)(implicit serializer: HTMLSerializer[T]): String =
     s"<html><body> ${content.toHTML(serializer)}<body></html>"
-// TODO the below is context bounds as the : after T tells the compiler to inject an implicit parameter of HTMLSerializer[T]. But can't use the serializer by name
+// TODO the below is context bounds as the : after T tells the compiler to inject an implicit parameter of HTMLSerializer[T] after the content, a bit like above. But can't use the serializer by name
 
   def htmlSugar[T : HTMLSerializer](content: T): String =
     s"<html><body> ${content.toHTML}<body></html>"
 
-  // implicitly
+  // implicitly  - this a method
 
   case class Permissions(mask: String)
   implicit val defaultPermissions: Permissions = Permissions("0744")
@@ -162,8 +162,9 @@ object TypeClasses extends App {
 
   // the below surfaces out the implicits methods which can be used through the val standardPerms
   val standardPerms = implicitly[Permissions]
+  println(standardPerms)
 
-  // A way to pass the implicit but still being able to summon it is in the below
+  // A way to pass the implicit but still being able to summon it is in the below example where you mention it
 
   def htmlSugar2[T: HTMLSerializer](content: T): String = {
     val serializer = implicitly[HTMLSerializer[T]]
