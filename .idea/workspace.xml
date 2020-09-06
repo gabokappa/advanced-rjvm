@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f911a746-6946-43c5-aa71-fed7385d3dc6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lectures/part5TypeSystem/TypeMembers.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lectures/part5TypeSystem/variance.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/lectures/part5TypeSystem/variance.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,12 +211,23 @@
       <workItem from="1598255889955" duration="4000" />
       <workItem from="1598953965262" duration="8351000" />
       <workItem from="1599034773718" duration="2644000" />
-      <workItem from="1599400472521" duration="1819000" />
+      <workItem from="1599400472521" duration="3484000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="597" y="250" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1596383293527">
