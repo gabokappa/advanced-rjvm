@@ -85,14 +85,32 @@ object StructuralTypes extends App {
 
   def f[T](somethingWithAHead: { def head: T}): Unit = println(somethingWithAHead.head)
 
+  /// TESTING THE ANSWER
 
+  case object CBNil extends CBL[Nothing] {
+    def head: Nothing = ???
+    def tail: CBL[Nothing] = ???
+  }
+
+  case class CBCons[T](override val head: T, override val tail: CBL[T]) extends CBL[T]
+
+  f(CBCons(2, CBNil))
+  f(new Human) // what is the type parameter T here? The compiler can work out that type T is Brain!!!
+///
 /*
-2. Is the headEqualizer compatible with CBL and a Human
+2. Is the headEqualizer compatible with CBL and a Human. Yes
  */
 
   object HeadEqualizer {
     type Headable[T] = { def head: T }
     def ===[T](a: Headable[T], b: Headable[T]): Boolean = a.head == b.head
   }
+
+  val brainsList = CBCons(new Brain, CBNil)
+  val stringsList = CBCons("Brains", CBNil)
+  HeadEqualizer.===(brainsList, new Human) // this poses a problem
+
+  HeadEqualizer.===(new Human, stringsList) // not type safe, because it relies on reflection, the compiler is able to erase the type parameter in the === method. Which redcuces the tripple equal to both headables
+
 
 }
