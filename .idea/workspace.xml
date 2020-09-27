@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f911a746-6946-43c5-aa71-fed7385d3dc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lectures/part5TypeSystem/PathDependentTypes.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lectures/part5TypeSystem/StructuralTypes.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part5TypeSystem/variance$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part5TypeSystem/variance$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part5TypeSystem/variance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rjvm-advanced-lessons/lectures/part5TypeSystem/variance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lectures/part5TypeSystem/TypeMembers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/lectures/part5TypeSystem/TypeMembers.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,8 +133,8 @@
       <item itemvalue="Application.RockingInheritance" />
       <item itemvalue="Application.variance" />
       <item itemvalue="Application.TypeMembers" />
-      <item itemvalue="sbt Task.Unnamed" />
       <item itemvalue="Application.PathDependentTypes" />
+      <item itemvalue="sbt Task.Unnamed" />
     </list>
     <recent_temporary>
       <list>
@@ -216,6 +213,7 @@
       <workItem from="1599400472521" duration="4945000" />
       <workItem from="1599466213697" duration="21000" />
       <workItem from="1599987707130" duration="2668000" />
+      <workItem from="1600184421880" duration="2442000" />
     </task>
     <servers />
   </component>
