@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f911a746-6946-43c5-aa71-fed7385d3dc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lectures/part5TypeSystem/SelfTypes.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lectures/part5TypeSystem/FBoundedPolymorphism.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/lectures/part5TypeSystem/FBoundedPolymorphism.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +218,7 @@
       <workItem from="1601278908656" duration="66000" />
       <workItem from="1602437153752" duration="596000" />
       <workItem from="1602487612291" duration="1196000" />
-      <workItem from="1602580133319" duration="6528000" />
+      <workItem from="1602580133319" duration="14095000" />
     </task>
     <servers />
   </component>
